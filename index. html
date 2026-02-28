@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Manal 💋</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: radial-gradient(circle at top, #7a001f, #2b000c);
+      color: #ffe9ef;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      position: relative;
+      background: rgba(60, 0, 16, 0.75);
+      border: 2px solid #a3002a;
+      border-radius: 24px;
+      padding: 28px 22px 24px;
+      max-width: 420px;
+      width: 92%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+      z-index: 2;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      letter-spacing: 1px;
+      color: #ff9bb0;
+    }
+
+    .subtitle {
+      opacity: 0.9;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .brainrot {
+      background: linear-gradient(90deg, #ff6f91, #ffc2d1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .note {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 10px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .btn {
+      background: #a3002a;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(163,0,42,0.5);
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 24px rgba(163,0,42,0.7);
+      filter: brightness(1.05);
+    }
+
+    .flying-kiss {
+      font-size: 34px;
+      display: inline-block;
+      animation: kiss 1.6s infinite ease-in-out;
+      margin: 10px 0 2px;
+    }
+
+    @keyframes kiss {
+      0%   { transform: translateY(0) rotate(0deg); opacity: .8; }
+      50%  { transform: translateY(-6px) rotate(-6deg); opacity: 1; }
+      100% { transform: translateY(0) rotate(0deg); opacity: .8; }
+    }
+
+    /* Floating kiss marks background */
+    .kisses {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .kiss {
+      position: absolute;
+      font-size: 28px;
+      opacity: 0.25;
+      animation: floatUp linear infinite;
+      filter: blur(0.2px);
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(110vh) translateX(0) rotate(0deg);
+        opacity: 0.0;
+      }
+      10% { opacity: .35; }
+      to {
+        transform: translateY(-20vh) translateX(40px) rotate(25deg);
+        opacity: 0.0;
+      }
+    }
+
+    .footer {
+      margin-top: 12px;
+      font-size: 12px;
+      opacity: 0.75;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated background kisses -->
+  <div class="kisses" id="kisses"></div>
+
+  <div class="card">
+    <h1>To: Manal 💋</h1>
+    <div class="subtitle">same people, different fonts — unfortunately iconic</div>
+
+    <div class="flying-kiss">😘</div>
+
+    <p>
+      Our friendship is <span class="brainrot">pure brainrot excellence</span>.  
+      Double meanings, zero filter, one shared brain cell, and somehow we’re still thriving.
+    </p>
+
+    <p>
+      If chaos had a bestie duo, it’d be us.  
+      You’re my maroon-red energy in a world of beige personalities 🍷
+    </p>
+
+    <p class="note">
+      Fun note: This page is your official reminder that you’re loved,
+      tolerated at peak levels, and emotionally adopted by me.
+    </p>
+
+    <div class="actions">
+      <a class="btn" href="https://www.youtube.com/results?search_query=Ghera+Hua+Arijit+Singh" target="_blank" rel="noreferrer">
+        🎵 Ghera Hua vibes
+      </a>
+      <button class="btn" onclick="spawnKiss()">💋 send a kiss</button>
+    </div>
+
+    <div class="footer">
+      made with chaotic affection & maroon red energy
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById('kisses');
+    const KISS = "💋";
+
+    function createKiss() {
+      const span = document.createElement('span');
+      span.className = 'kiss';
+      span.textContent = KISS;
+
+      const size = Math.random() * 16 + 18; // 18px–34px
+      span.style.fontSize = size + 'px';
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.animationDuration = (Math.random() * 8 + 6) + 's'; // 6–14s
+      span.style.animationDelay = (Math.random() * 2) + 's';
+
+      container.appendChild(span);
+
+      setTimeout(() => span.remove(), 16000);
+    }
+
+    // background kisses
+    for (let i = 0; i < 24; i++) createKiss();
+    setInterval(createKiss, 900);
+
+    // button-triggered extra kiss burst
+    function spawnKiss() {
+      for (let i = 0; i < 6; i++) createKiss();
+    }
+  </script>
+
+</body>
+</html>
